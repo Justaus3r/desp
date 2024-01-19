@@ -158,7 +158,10 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+<<<<<<< HEAD
 
 # nuitka builds
 desp.build/
 desp.dist/
+=======
+>>>>>>> 5f27bf49c9d4d5a1251885ebe6a1fd6ef966226f
