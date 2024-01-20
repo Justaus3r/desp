@@ -6,6 +6,8 @@ Why not!. Also studying is for boomers...
 
 
 # Dowloads
+binary built using [nuitka](https://github.com/Nuitka/Nuitka) and packaged using [innosetup](https://jrsoftware.org/isinfo.php).
+
 download from [here](https://github.com/Justaus3r/desp/releases/download/v0.1.0/desp-0.1.0_amd64.exe)
 
 
