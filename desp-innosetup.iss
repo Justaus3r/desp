@@ -88,8 +88,8 @@ Source: "D:\Development\Python\Projects\desp\desp.dist\select.pyd"; DestDir: "{a
 Source: "D:\Development\Python\Projects\desp\desp.dist\unicodedata.pyd"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\Development\Python\Projects\desp\desp.dist\vcruntime140.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\Development\Python\Projects\desp\desp.dist\cryptography\hazmat\bindings\_rust.pyd"; DestDir: "{app}\cryptography\hazmat\bindings"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\charset_normalizer\md.pyd"; DestDir: "{app}\charset_normalizer"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\charset_normalizer\md__mypyc.pyd"; DestDir: "{app}\charset_normalizer"; Flags: ignoreversion
+;Source: "D:\Development\Python\Projects\desp\desp.dist\charset_normalizer\md.pyd"; DestDir: "{app}\charset_normalizer"; Flags: ignoreversion
+;Source: "D:\Development\Python\Projects\desp\desp.dist\charset_normalizer\md__mypyc.pyd"; DestDir: "{app}\charset_normalizer"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
