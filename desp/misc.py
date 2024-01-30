@@ -1,10 +1,10 @@
 import os
 import subprocess
 
-UTIL_VERSION: str = '0.1.0'
+UTIL_VERSION: str = "0.2.0"
 
 
-UTIL_AUTHOR: str =  "Justuas3r"
+UTIL_AUTHOR: str = "Justuas3r"
 
 UTIL_HELP: str = """desp - a cli utility to help all look for cheating partners.
 
@@ -19,23 +19,18 @@ quit/exit   quit the utility
 Other than that, you are expected to Input a Candidate name
 
 Note:
-This is just a poc, will break in many cases.
 
-<cyan><b><ul>Working Probability</ul></b></cyan>: <green>69%</green>. Well,  because its dumb and assumes that all pdfs are identical. Though it does perform a single iteration filtering to remove a single diff to match with base-case. It uses embedded indices to harvest all the required data(hence called harvest indices), so it probably won't work for Different Departments OR
-Semesters(Though , can be made to work by changing the harvest indices).
-
-And in Future , if Bahria decides to change their generated pdf's format, then , It will require 
-an update for all the harvest indices. 
-
-A Better way might be to parse the pdf and use regex to match patterns and harvest data, might redo the get_parsed_data() if i revisit this repo
+Starting from 0.2.0, it should work with most, if not all student slips as now it doesn't depend on
+embedded const indices and tries to be smart and extract data based on patterns.
 """
+
 
 def clear_screen() -> int:
     status: int = 1
-    cmd: str = 'cls' if os.name == 'nt' else 'clear'
+    cmd: str = "cls" if os.name == "nt" else "clear"
     forked_process_status = subprocess.run([cmd], shell=True)
-    
+
     if not forked_process_status.returncode:
         status = 0
-    
+
     return status

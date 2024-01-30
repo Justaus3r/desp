@@ -10,5 +10,7 @@ def main():
         repl.init_repl()
         repl.start_repl()
     except Exception:
-        print("An Unhandled Exception has Occured, report this issue on github bug tracker")
-        con.print_exception(show_locals=True) 
+        print(
+            "An Unhandled Exception has Occured, report this issue on github bug tracker"
+        )
+        con.print_exception(show_locals=True)

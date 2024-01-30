@@ -1,11 +1,10 @@
 from rich import box
 from typing import Union
-from rich.tree import Tree 
+from rich.tree import Tree
 from rich.table import Table
 from rich.console import Console
 from dataclasses import dataclass
 from .parse_exam_pdf import ExamPdfParser
-
 
 
 console_obj: Console = Console()
@@ -50,9 +49,6 @@ class DiffExams:
         # we will just remove the diff of candidates
         # with base_case, to avoid dealing with
         # additional handling of shit
-        # Also for this shit to work, it assumes
-        # many things , like having only 1 additional
-        # course , plus, being in same department
 
         # base_case is the candidate with
         # "courses" length equilent to AuxInfo.exam_count
@@ -101,7 +97,7 @@ class DiffExams:
                     single_candidate_diff["cheating-partners-seating-coords"][
                         _ctr
                     ].append(_cand["sitting_dimensions"][_ctr])
-                        
+
                     single_candidate_diff["lucky_days"].append(_cand["exam_room"])
 
         return single_candidate_diff
@@ -143,45 +139,55 @@ class DiffExams:
 
         return diff
 
+
 def visualize_diff(diff: dict) -> None:
     cand_name: str = diff["name"]
     candidate_exam: Tree = Tree("{}'s Theory Exams".format(cand_name))
     for exam, exam_date in zip(diff["courses"], diff["exam_dates"]):
-        candidate_exam.add(exam_date + ' - ' + exam)
-    
+        candidate_exam.add(exam_date + " - " + exam)
+
     lucky_days: Table = Table(show_lines=True, show_header=False, box=box.ROUNDED)
     candidate_name_abbreviations: Tree = Tree("Cheat Partners")
 
-    _already_added: list =  []
+    _already_added: list = []
     for partners in diff["cheating-partners"]:
         for partner in partners:
             if partner in _already_added:
                 continue
             first_name, middle_name, *_ = partner.split()
-            candidate_name_abbreviations.add("{}.{}".format(first_name[0], middle_name[0]) + ' - ' + partner)
+            candidate_name_abbreviations.add(
+                "{}.{}".format(first_name[0], middle_name[0]) + " - " + partner
+            )
             _already_added.append(partner)
 
     visual_diffs = Table(show_lines=True, show_header=False, box=box.ROUNDED)
-    
+
     visual_diff_strs = diff["seating-diff-visuals"]
     visual_diffs_individual = []
     for idx, diff_str in enumerate(visual_diff_strs):
-            individual_tbl = Table(title=diff["exam_dates"][idx] + ' | ' + diff["exam_room"][idx], show_header=False, box=box.ROUNDED)
-            individual_tbl.add_row(diff_str)
-            
-            visual_diffs_individual.append(individual_tbl)
+        individual_tbl = Table(
+            title=diff["exam_dates"][idx] + " | " + diff["exam_room"][idx],
+            show_header=False,
+            box=box.ROUNDED,
+        )
+        individual_tbl.add_row(diff_str)
 
+        visual_diffs_individual.append(individual_tbl)
 
     for idx in range(0, len(visual_diff_strs), 2):
         try:
-            visual_diffs.add_row(*visual_diffs_individual[idx: idx + 2])
+            visual_diffs.add_row(*visual_diffs_individual[idx : idx + 2])
         except IndexError:
             pass
 
     lucky_days.add_row(candidate_name_abbreviations, visual_diffs)
-    
-    tbl: Table = Table(title="{}'s Seating".format(cand_name), show_lines=True, show_header=False, box=box.ROUNDED )
+
+    tbl: Table = Table(
+        title="{}'s Seating".format(cand_name),
+        show_lines=True,
+        show_header=False,
+        box=box.ROUNDED,
+    )
     tbl.add_row("Courses", candidate_exam)
     tbl.add_row("Lucky Days", lucky_days)
     console_obj.print(tbl)
-
