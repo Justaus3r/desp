@@ -8,6 +8,7 @@ Why not!. Also studying is for boomers(not really)...
 # Dowloads
 **Note: before downloading , please read the [Note](https://github.com/Justaus3r/desp#Note)**<br>
 **Note: binary build not yet provided for 0.2.1, use from source**
+
 binary built using [nuitka](https://github.com/Nuitka/Nuitka) and packaged using [innosetup](https://jrsoftware.org/isinfo.php).
 
 download from [here](https://github.com/Justaus3r/desp/releases/download/v0.1.0/desp-0.1.0_amd64.exe)
