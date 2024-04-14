@@ -80,7 +80,7 @@ class Repl:
             Repl.event_loop_active = True
         print(HTML("<green>loading candidate slips...</green>"))
         Thread(name="repl-event-loop", target=self.__hotreload_pdf).start()
-        sleep(1)
+        sleep(1.2)
         clear_screen()
         self.__repl_is_initialized = True
 
@@ -134,7 +134,7 @@ class Repl:
 
             diff_obj = DiffExams(*self.pdfs)
             generated_diffs = diff_obj.generate_diffs()
-
+            
             try:
                 cand_diff = generated_diffs[cmd]
             except KeyError:
@@ -144,4 +144,4 @@ class Repl:
             clear_screen()
             visualize_diff(cand_diff)
 
-        print(HTML("<cyan>Quitting!\nNice cheating ig?</cyan>"))
+        print(HTML("<cyan>Quitting!\nGood luck cheating ig?</cyan>"))

@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-UTIL_VERSION: str = "0.2.0"
+UTIL_VERSION: str = "0.2.1"
 
 
 UTIL_AUTHOR: str = "Justuas3r"

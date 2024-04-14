@@ -1,3 +1,4 @@
+import os
 import re
 from typing import Union
 from enum import Enum, auto
@@ -34,6 +35,7 @@ class TokenType(Enum):
     EXAM_COL = auto()
     SKIP = auto()
     SKIP_FOUR = auto()
+    SKIP_THREE = auto()
     NOP = auto()
 
 
@@ -69,29 +71,37 @@ class ExamPdfParser:
             def process_token(token: str, ctx: dict) -> TokenType:
                 token_idx: int = ctx["idx"]
                 token_row: list[str] = ctx["row"]
-                course_name_complete: bool = ctx["course-name-complete"]
+                course_name_complete: bool = ctx["course-name-complete"] 
 
-                if re.match("^(?!BS)\w+", token) and not course_name_complete:
+                if re.match(r"(^(?!BS)\w+[-&]*\w*)|^&", token) and not course_name_complete:
                     return TokenType.COURSE_NAME
 
                 elif token.strip() == "BS" and re.match(
-                    "\(\w\w\)-\d", token_row[token_idx + 1]
+                    r"\(\w\w\)-\d", token_row[token_idx + 1]
                 ):
                     return TokenType.SKIP_FOUR
+                
+                elif re.match(r"\(\w\w\)-\d", token_row[token_idx]):
+                    # this happens when the token `BS`
+                    # is not encountered due to some reason
+                    # probably because its concatenated with
+                    # previous token
 
-                elif re.match("\d{2}/\d{2}/\d{4}", token):
+                    return TokenType.SKIP_THREE
+                
+                elif re.match(r"\d{2}/\d{2}/\d{4}", token):
                     return TokenType.EXAM_DATE
 
-                elif re.match("\d{2}:\d{2}", token):
+                elif re.match(r"\d{2}:\d{2}", token):
                     return TokenType.EXAM_TIMING
 
-                elif re.match("\w{2}-\d\d?", token):
+                elif re.match(r"\w{2}-\d\d?", token):
                     return TokenType.EXAM_ROOM
 
-                elif re.match("\d", token) and token_idx == len(token_row) - 2:
+                elif re.match(r"\d", token) and token_idx == len(token_row) - 2:
                     return TokenType.EXAM_ROW
 
-                elif re.match("\d", token) and token_idx == len(token_row) - 1:
+                elif re.match(r"\d", token) and token_idx == len(token_row) - 1:
                     return TokenType.EXAM_COL
 
                 elif token == "N/A" or token == "–":
@@ -144,6 +154,10 @@ class ExamPdfParser:
                 course_name_complete: bool = False
                 skip_next4_cols: bool = False
                 skip_next4_ctr = 0
+
+                # same but for 3 iteration skip
+                skip_next3_ctr = 0
+                skip_next3_cols = False
                 for col, token in enumerate(single_exam_row):
                     if skip_next4_cols:
                         # The idea here is that, when a course name is completed
@@ -156,6 +170,15 @@ class ExamPdfParser:
                         else:
                             skip_next4_ctr = 0
                             skip_next4_cols = False
+                        
+                    if skip_next3_cols:
+                        if skip_next3_ctr < 2:
+                            # same idea as above , just with three skips
+                            skip_next3_ctr += 1
+                            continue
+                        else:
+                            skip_next3_ctr = 0
+                            skip_next3_cols = False
 
                     ctx: dict = {
                         "idx": col,
@@ -168,6 +191,11 @@ class ExamPdfParser:
                     elif process_token(token, ctx) == TokenType.SKIP_FOUR:
                         course_name_complete = True
                         skip_next4_cols = True
+                        continue
+                    elif process_token(token, ctx) == TokenType.SKIP_THREE:
+                        course_name = course_name[:-2]
+                        course_name_complete = True
+                        skip_next3_cols = True
                         continue
                     elif process_token(token, ctx) == TokenType.COURSE_NAME:
                         course_name += " " + token
@@ -185,6 +213,7 @@ class ExamPdfParser:
                         pass
                     else:
                         raise UnidentifiedToken(token)
+                        
 
                 if not exam_timing:
                     # if the exam doesn't have exam_timing
