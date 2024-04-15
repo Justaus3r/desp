@@ -147,7 +147,7 @@ def visualize_diff(diff: dict) -> None:
         candidate_exam.add(exam_date + " - " + exam)
 
     lucky_days: Table = Table(show_lines=True, show_header=False, box=box.ROUNDED)
-    candidate_name_abbreviations: Tree = Tree("Cheat Partners")
+    candidate_name_abbreviations: Tree = Tree("Cheat Buddies")
 
     _already_added: list = []
     for partners in diff["cheating-partners"]:
