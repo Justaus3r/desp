@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Desp"
-#define MyAppVersion "0.1.0"
+#define MyAppVersion "0.2.1"
 #define MyAppPublisher "Justaus3r"
 #define MyAppURL "https://www.github.com/justaus3r"
 #define MyAppExeName "desp.exe"
@@ -21,14 +21,14 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-LicenseFile=C:\Users\Justaus3r\Desktop\gplv3.txt
-InfoAfterFile=C:\Users\Justaus3r\Desktop\after_install.txt
+LicenseFile=C:\Users\x-ner\Desktop\gplv3.txt
+InfoAfterFile=C:\Users\x-ner\Desktop\after_install.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
-OutputDir=C:\Users\Justaus3r\Desktop\DespO
+OutputDir=C:\Users\x-ner\Desktop\
 OutputBaseFilename=desp-0.1.0_amd64
-SetupIconFile=C:\Users\Justaus3r\Desktop\prog_ico.ico
+SetupIconFile=D:\prev_data\Development\Python\Projects\desp\res\diff.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -65,29 +65,29 @@ Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\Development\Python\Projects\desp\desp.dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_asyncio.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_bz2.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_cffi_backend.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_ctypes.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_decimal.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_hashlib.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_lzma.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_multiprocessing.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_overlapped.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_queue.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_socket.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\_ssl.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\libcrypto-3.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\libffi-8.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\libssl-3.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\pyexpat.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\python3.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\python311.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\select.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\unicodedata.pyd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\vcruntime140.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Development\Python\Projects\desp\desp.dist\cryptography\hazmat\bindings\_rust.pyd"; DestDir: "{app}\cryptography\hazmat\bindings"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_asyncio.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_bz2.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_cffi_backend.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_ctypes.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_decimal.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_hashlib.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_lzma.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_multiprocessing.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_overlapped.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_queue.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_socket.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\_ssl.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\libcrypto-3.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\libffi-8.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\libssl-3.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\pyexpat.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\python3.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\python311.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\select.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\unicodedata.pyd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\vcruntime140.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\prev_data\Development\Python\Projects\desp\desp.dist\cryptography\hazmat\bindings\_rust.pyd"; DestDir: "{app}\cryptography\hazmat\bindings"; Flags: ignoreversion
 ;Source: "D:\Development\Python\Projects\desp\desp.dist\charset_normalizer\md.pyd"; DestDir: "{app}\charset_normalizer"; Flags: ignoreversion
 ;Source: "D:\Development\Python\Projects\desp\desp.dist\charset_normalizer\md__mypyc.pyd"; DestDir: "{app}\charset_normalizer"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
