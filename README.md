@@ -29,5 +29,8 @@ Now it does(probably)
 
 Starting from v0.2.0. desp should work with most, if not all student slips, since now it doesn't depend on embedded fetch indices , rather its somewhat smart and fetch's data based on patterns.
 
+# Icon:
+Used from [icon-icons.com](https://icon-icons.com/de/symbol/Diff/132439) under [creative commons](https://creativecommons.org/) 4.0 
+
 # License
 Licensed Under GPLV3 and later.
