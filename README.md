@@ -7,17 +7,16 @@ Why not!. Also studying is for boomers(not really)...
 
 # Dowloads
 **Note: before downloading , please read the [Note](https://github.com/Justaus3r/desp#Note)**<br>
-**Note: binary build not yet provided for 0.2.1, use from source**
 
 binary built using [nuitka](https://github.com/Nuitka/Nuitka) and packaged using [innosetup](https://jrsoftware.org/isinfo.php).
 
-download from [here](https://github.com/Justaus3r/desp/releases/download/v0.1.0/desp-0.1.0_amd64.exe)
+download from [here](https://github.com/Justaus3r/desp/releases/download/v0.2.1/desp-0.2.1_amd64.exe)
 
 
 # I want it to work for me:
 ~~Change the indices in [```HarvestIndices```](https://github.com/Justaus3r/desp/blob/master/desp/parse_exam_pdf.py#L8) class to match the fetch points of your pdf. OR just change the horrible implementation of [``get_parsed_data()``](https://github.com/Justaus3r/desp/blob/master/desp/parse_exam_pdf.py#L30) to a generic one that doesn't break all the times(please fork and do that + send a PR)~~
 
-Now it does(probably)
+Now it does(probably).if it doesn't, create a Bug report on [Github Issue Tracker](https://github.com/Justaus3r/desp/issues)
 
 # Note:
 ~~This is just a poc, will break in most cases.~~
