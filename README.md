@@ -16,7 +16,7 @@ download from [here](https://github.com/Justaus3r/desp/releases/download/v0.2.1/
 # I want it to work for me:
 ~~Change the indices in [```HarvestIndices```](https://github.com/Justaus3r/desp/blob/master/desp/parse_exam_pdf.py#L8) class to match the fetch points of your pdf. OR just change the horrible implementation of [``get_parsed_data()``](https://github.com/Justaus3r/desp/blob/master/desp/parse_exam_pdf.py#L30) to a generic one that doesn't break all the times(please fork and do that + send a PR)~~
 
-Now it does(probably)
+Now it does(probably).if it doesn't, create a Bug report on [Github Issue Tracker](https://github.com/Justaus3r/desp/issues)
 
 # Note:
 ~~This is just a poc, will break in most cases.~~
